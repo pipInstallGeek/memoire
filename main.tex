@@ -1,0 +1,116 @@
+\documentclass[11pt]{book}
+
+%%%%%% FORMAT EPISEN
+\input{formatEPISEN}
+\input{glossaire.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MODIFIER ICI POUR VOTRE PDF !!!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[colorlinks=true]{hyperref}
+\AtBeginDocument{%
+ \hypersetup{
+   urlcolor=linkEpisenMEMOIRE,
+   urlbordercolor=linkEpisenMEMOIRE,
+   linkcolor=black,
+   linkbordercolor=linkEpisenMEMOIRE,
+   citecolor=linkEpisenMEMOIRE,
+   citebordercolor=linkEpisenMEMOIRE,
+   anchorcolor=linkEpisenMEMOIRE,
+   pdfborderstyle={/S/S/W 0.7},
+   pdftitle={Marouane BOUZIANE},
+   pdfauthor={AUTEUR DE CE DOCUMENT}
+}}
+
+
+% BARRES NOIRES SUR LES LIGNES QUI DÉBORDENT DES PAGES
+%\overfullrule=3mm
+
+\urlstyle{same}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% PAGE DE TITRE %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{titre}
+\cleardoublepage
+
+
+\def\cleardoublepage{\clearpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% PLAN %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\fancyhead{}
+\renewcommand{\chaptermark}[1]{\markboth{\textsc{#1}}{}}
+\frontmatter
+\tableofcontents
+\addcontentsline{toc}{chapter}{Contents}
+\clearpage
+\listoffigures
+\addcontentsline{toc}{chapter}{Liste des figures}
+\clearpage
+%\listoftables
+%\addcontentsline{toc}{chapter}{Liste des tableaux}
+\mainmatter
+
+
+\setlength{\parskip}{.7em}
+
+\titlespacing*{\section}{0pt}{.9em}{.8em}
+\renewcommand{\baselinestretch}{1.1}
+
+\fancyfoot{}
+\fancyfoot[LE]{\thepage/\pageref{LastPage}}
+\fancyfoot[RO]{\thepage/\pageref{LastPage}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% VOS CHAPITRES %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapters/intro.tex}
+
+\fancyhead[RO]{\leftmark}
+
+\input{Chapters/chapter01.tex}
+
+\input{Chapters/chapter02.tex}
+
+\input{Chapters/chapter03.tex}
+
+\input{Chapters/conclu.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% BIBLIOGRAPHIE %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printbibliography
+\fancyhead{}
+\fancyhead[LE,RO]{Bibliographie}
+\addcontentsline{toc}{chapter}{Bibliographie}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Glossaire %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printglossaries
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Annexes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\input{Annexes/annex01.tex}
+\input{Annexes/annex02.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Dernière page %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{quatriemeDeCouverture}
+
+\end{document}

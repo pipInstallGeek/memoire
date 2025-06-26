@@ -1,0 +1,22 @@
+\chapter*{Introduction}
+%\epigraph{\itshape  La volonté trouve, la liberté choisit. Trouver et choisir, c'est penser}{-- Victor Hugo}
+%\startcontents[chapters]
+\addcontentsline{toc}{chapter}{Introduction}  
+\fancyhead[LE,RO]{Introduction}
+
+\section*{Context and Relevance}
+Generative Adversarial Networks (GANs) have revolutionized deep generative modeling by enabling the creation of high-fidelity synthetic data. Unlike traditional probabilistic models, which rely on explicit density estimation, GANs leverage an adversarial training process to implicitly learn complex data distributions. This framework has proven superior in tasks such as photorealistic image synthesis, domain adaptation, and style transfer, powering advancements in computer vision, medical imaging, and creative AI. From generating synthetic training data for rare medical conditions to enhancing low-resolution satellite imagery, GANs have become indispensable tools for bridging the gap between real-world data scarcity and the demands of modern machine learning.
+
+\section*{Challenges in GAN Training: Instability and Mode Collapse}
+Despite their transformative potential, GANs suffer from training instability, mode collapse, and non-convergence. These issues stem from the adversarial dynamics between the generator (G) and the discriminator (D), which engage in a two-player minimax game. While this setup enables GANs to learn complex data distributions, it also introduces several fundamental challenges that hinder stable and reliable training.
+
+The key difficulties in GAN training can be categorized as follows:
+\begin{itemize}  
+    \item \textbf{Training Instability}: The adversarial process often leads to unstable dynamics, where gradients either vanish or explode, causing oscillations or divergence instead of convergence. This instability prevents the generator and discriminator from reaching equilibrium.  
+    \item \textbf{Mode Collapse}: Instead of generating a diverse range of outputs, the generator may collapse to producing only a limited set of samples, failing to capture the full variability of the data distribution. This issue can manifest as partial mode collapse, where some modes are missing, or complete mode collapse, where the generator outputs nearly identical samples regardless of input noise.  
+    
+\end{itemize}  
+
+\section*{Objectives}
+
+This work aims to address key challenges in GAN training, such as instability, mode collapse, and non-convergence, by reviewing existing solutions and evaluating their effectiveness. We will analyze improvements in network architectures, loss functions, and optimization strategies to enhance training stability and sample diversity. In addition, we will explore and test practical refinements, such as adaptive loss functions and alternative optimization techniques, to improve GAN performance in real-world applications.

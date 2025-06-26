@@ -1,0 +1,153 @@
+\input{departementEPISEN}
+
+\usepackage[
+	natbib=true,
+	backend=bibtex,
+	style=numeric,
+	sorting=none,
+	sortcites
+]{biblatex}
+\addbibresource{bibliographie}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.5cm, twoside]{geometry}
+\usepackage{xcolor}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{libertine}
+\usepackage[pdftex]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{apalike}
+\usepackage{minitoc}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{epigraph}
+%\usetikzlibrary{shadows.blur}
+\usepackage{lscape}
+\usepackage{titletoc}
+\usepackage{booktabs}
+\usepackage{arydshln}
+\usepackage{calc}
+\usepackage[]{titlesec} 
+\definecolor{linkColor}{HTML}{32a852}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage[]{todonotes}
+\usepackage[style=listdotted,toc,acronym]{glossaries}
+% Autre style de glossaires ici : https://www.dickimaw-books.com/gallery/glossaries-styles/
+\usepackage[automake]{glossaries-extra}
+\usepackage{ifthen}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% *********************** LES COULEURS (Départements) ********************
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\equal{\departementEPISEN}{ITS}}
+  {
+   %%%%%%%%%%%%%%%%%%%%%%%%%%% POUR ITS
+   \definecolor{linkEpisenMEMOIRE}{RGB}{101 90 160}
+   \definecolor{colorEPISEN-MEMOIRE}{HTML}{655aa0}
+  }
+  {
+   \ifthenelse{\equal{\departementEPISEN}{SI}}
+    {
+	%%%%%%%%%%%%%%%%%%%%%%%%%%% POUR SI
+	\definecolor{linkEpisenMEMOIRE}{RGB}{0 159 227}
+	\definecolor{colorEPISEN-MEMOIRE}{HTML}{009fe3}
+    }
+    {
+	%%%%%%%%%%%%%%%%%%%%%%%%%%% POUR ISBS
+	\definecolor{linkEpisenMEMOIRE}{RGB}{47 172 102}
+	\definecolor{colorEPISEN-MEMOIRE}{HTML}{2fac66}
+    }
+  }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\AtEndDocument{\label{LastPage}}
+
+
+\titleformat{\chapter}[display]
+{\normalfont\color{colorEPISEN-MEMOIRE}}
+{\filleft\huge\color{black}\textsc\chaptertitlename\hspace*{2mm}%
+	\begin{tikzpicture}[baseline={([yshift=-.6ex]current bounding box.center)}]
+    \node[fill=colorEPISEN-MEMOIRE,circle,text=white] {\thechapter};
+	\end{tikzpicture}
+}
+{1ex}
+{\titlerule[2.5pt]\vspace*{1.5ex}\Huge\color{black}\textsc}
+[]
+
+\titleformat{name=\chapter,numberless}[display]
+{\normalfont\color{colorEPISEN-MEMOIRE}}
+{}
+{1ex}
+%{\vspace*{-5cm}\Huge\textsc}
+{\titlerule[2.5pt]\vspace*{1.5ex}\Huge\color{black}\textsc}
+[]
+
+%command to print the actual minitoc
+\newcommand{\printmyminitoc}[1]{%
+	\noindent\hspace{1cm}%
+	\colorlet{chpnumbercolor}{black}%
+	\begin{tikzpicture}
+	\node(s){
+		\begin{minipage}{.9\linewidth}%minipage trick
+		\printcontents[chapters]{}{1}{}
+		\end{minipage}
+	};
+	{
+        \color{colorEPISEN-MEMOIRE}
+
+		\draw[line width=1.5pt](s.north west)--(s.north east) (s.south west)--(s.south east);
+	}
+	\end{tikzpicture}
+	%\vspace*{3ex}
+	
+	#1
+	%\vfill
+	%\pagebreak
+}
+
+
+
+
+\newcommand*{\doi}[1]{\href{https://doi.org/\detokenize{#1}}{doi: \detokenize{#1}}}
+
+
+
+
+\linepenalty=1000
+\everypar=\expandafter{\the\everypar\loosness=-1 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\HRule}{\rule{\linewidth}{0.7mm}}
+\newcommand{\Hrule}{\rule{\linewidth}{0.3mm}}
+
+
+
+%\definecolor{linkEpisenCyan}{RGB}{0 159 227}
+%\definecolor{linkEpisenVert}{RGB}{47 172 102}
+%\definecolor{linkEpisenViolet}{RGB}{101 90 160}
+%\definecolor{colorEPISEN-SI}{HTML}{009fe3}
+%\definecolor{colorEPISEN-ISBS}{HTML}{2fac66}
+%\definecolor{colorEPISEN-ITS}{HTML}{655aa0}
+%\definecolor{colorEPISEN-UPEC}{HTML}{4c6172}
+
